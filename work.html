@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Deadline - Your Virtual Productivity Space</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            background-color: #FFF8E1;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #D97706;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FFF;
+        }
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .navbar ul li {
+            margin: 0 15px;
+        }
+        .navbar ul li a {
+            text-decoration: none;
+            color: #FFF;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .navbar ul li a:hover {
+            color: #FFF8E1;
+        }
+        header {
+            background: linear-gradient(to right, #D97706, #92400E);
+            color: #FFF;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        header button {
+            background-color: #FFF;
+            color: #92400E;
+            padding: 15px 30px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        header button:hover {
+            background-color: #FFF8E1;
+        }
+        section {
+            padding: 60px 20px;
+        }
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #92400E;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background: #FFF;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            margin-bottom: 40px;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        .card h3 {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            color: #92400E;
+        }
+        .icon-box {
+            font-size: 3rem;
+            color: #D97706;
+        }
+        button.cta-button {
+            background: #92400E;
+            color: #FFF;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+        button.cta-button:hover {
+            background: #D97706;
+        }
+        footer {
+            background-color: #92400E;
+            color: #FFF;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        footer button {
+            background-color: #FFF;
+            color: #92400E;
+            padding: 15px 30px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        footer button:hover {
+            background-color: #FFF8E1;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background-color: #FFF;
+            margin: 10% auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .modal input, .modal textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        .modal button {
+            background-color: #92400E;
+            color: #FFF;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .modal button:hover {
+            background-color: #D97706;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">Cafe Deadline</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#" class="contact-btn">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header>
+        <div class="container">
+            <i class="fas fa-coffee icon-box"></i>
+            <h1 class="text-5xl font-bold mb-4">Welcome to Cafe Deadline</h1>
+            <p class="text-2xl mb-4">Your Virtual Productivity Space</p>
+            <p class="text-lg mb-8">Where Structure Meets Support</p>
+            <button class="start-free-week-btn">Start Your Free Week</button>
+            <div class="mt-8 text-amber-200">
+                <p>$99/month - First week free</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Modal Contact Form -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h3>Contact Us</h3>
+            <p>Thank you for your interest! Please leave your details and we'll be in touch soon.</p>
+            <input type="text" id="user-name" placeholder="Your Name" required>
+            <input type="email" id="user-email" placeholder="Your Email" required>
+            <textarea id="user-message" rows="4" placeholder="Write your message here..." required></textarea>
+            <button onclick="sendContactForm()">Send Message</button>
+        </div>
+    </div>
+
+    <!-- Daily Structure -->
+    <section>
+        <div class="container">
+            <h2>Your Daily Brew of Productivity</h2>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="card text-center">
+                    <i class="fas fa-sunrise icon-box"></i>
+                    <h3>Morning Planning</h3>
+                    <p>Start with a focused planning session. Set clear goals for your 4-hour productivity block.</p>
+                </div>
+                <div class="card text-center">
+                    <i class="fas fa-hourglass-half icon-box"></i>
+                    <h3>Focus Sessions</h3>
+                    <p>Six structured 25-minute Pomodoro sessions with accountability partners.</p>
+                </div>
+                <div class="card text-center">
+                    <i class="fas fa-comments icon-box"></i>
+                    <h3>Check-ins</h3>
+                    <p>Regular progress reviews and adjustments to keep you on track.</p>
+                </div>
+                <div class="card text-center">
+                    <i class="fas fa-chart-line icon-box"></i>
+                    <h3>Daily Wrap-up</h3>
+                    <p>Document achievements and prepare for tomorrow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Life Management -->
+    <section>
+        <div class="container">
+            <h2>Beyond Productivity</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card">
+                    <h3 class="flex items-center"><i class="fas fa-home icon-box mr-3"></i> Life Management</h3>
+                    <ul class="space-y-3 mt-4">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Household task tracking</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Appointment scheduling</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Bill payment reminders</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Utilities management</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 class="flex items-center"><i class="fas fa-heart icon-box mr-3"></i> Wellness Support</h3>
+                    <ul class="space-y-3 mt-4">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Workout scheduling</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Activity tracking</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Habit building</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Progress monitoring</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 class="flex items-center"><i class="fas fa-users icon-box mr-3"></i> Community</h3>
+                    <ul class="space-y-3 mt-4">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> WhatsApp support group</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Accountability partners</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Shared celebrations</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Weekly insights</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h2 class="text-2xl font-bold mb-4">Ready to Transform Your Productivity?</h2>
+            <p class="mb-8">Join our community and experience the power of structured support.</p>
+            <button class="get-started-btn">Get Started Now</button>
+            <div class="mt-8 text-sm text-amber-200">
+                © 2024 Cafe Deadline. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const modal = document.getElementById("contactModal");
+        const closeModal = document.getElementById("closeModal");
+
+        document.querySelector('.start-free-week-btn').addEventListener('click', function() {
+            modal.style.display = 'block';
+        });
+        document.querySelector('.get-started-btn')?.addEventListener('click', function() {
+            modal.style.display = 'block';
+        });
+
+        closeModal.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        function sendContactForm() {
+            const userName = document.getElementById('user-name').value;
+            const userEmail = document.getElementById('user-email').value;
+            const userMessage = document.getElementById('user-message').value;
+
+            if (userName.trim() && userEmail.trim() && userMessage.trim()) {
+                alert("Thank you for your message! We'll get back to you soon.");
+                modal.style.display = 'none';
+                document.getElementById('user-name').value = '';
+                document.getElementById('user-email').value = '';
+                document.getElementById('user-message').value = '';
+            } else {
+                alert("Please fill in all fields before sending.");
+            }
+        }
+            document.querySelector('.contact-btn').addEventListener('click', function() {
+            modal.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
