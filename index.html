@@ -26,6 +26,14 @@
             z-index: 100;
         }
         .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        .navbar .logo span {
             font-size: 1.5rem;
             font-weight: 700;
             color: #FFF;
@@ -53,6 +61,11 @@
             color: #FFF;
             padding: 100px 20px;
             text-align: center;
+            position: relative;
+        }
+        header .logo-img {
+            width: 200px;
+            margin: 0 auto 20px;
         }
         header button {
             background-color: #FFF;
@@ -193,7 +206,10 @@
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <div class="logo">Cafe Deadline</div>
+        <div class="logo">
+            <img src="images/cafe-deadline-logo.webp" alt="Cafe Deadline Logo">
+            <span>Cafe Deadline</span>
+        </div>
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">Features</a></li>
@@ -205,9 +221,10 @@
     <!-- Hero Section -->
     <header>
         <div class="container">
-            <i class="fas fa-coffee icon-box"></i>
+            <img src="images/cafe-deadline-logo.webp" alt="Cafe Deadline Logo" class="logo-img">
             <h1 class="text-5xl font-bold mb-4">Welcome to Cafe Deadline</h1>
-            <p class="text-lg mb-8"> Daily Zoom calls to set your goals, Pomodoro sessions to keep you focused, and real-time accountability to ensure you finish what matters most.</p>
+            <p class="text-2xl mb-4">Your Virtual Productivity Space</p>
+            <p class="text-lg mb-8">Where Structure Meets Support</p>
             <button class="start-free-week-btn">Start Your Free Week</button>
             <div class="mt-8 text-amber-200">
                 <p>$99/month - First week free</p>
@@ -221,77 +238,24 @@
             <span class="close" id="closeModal">&times;</span>
             <h3>Contact Us</h3>
             <p>Thank you for your interest! Please leave your details and we'll be in touch soon.</p>
-            <input type="text" id="user-name" placeholder="Your Name" required>
-            <input type="email" id="user-email" placeholder="Your Email" required>
-            <textarea id="user-message" rows="4" placeholder="Write your message here..." required></textarea>
-            <button onclick="sendContactForm()">Send Message</button>
+            <!-- Modified Form with Formspree -->
+            <form action="https://formspree.io/f/xvgoqobp" method="POST">
+                <label>
+                    Your Name:
+                    <input type="text" name="user_name" id="user-name" placeholder="Your Name" required>
+                </label>
+                <label>
+                    Your Email:
+                    <input type="email" name="user_email" id="user-email" placeholder="Your Email" required>
+                </label>
+                <label>
+                    Your Message:
+                    <textarea name="user_message" id="user-message" rows="4" placeholder="Write your message here..." required></textarea>
+                </label>
+                <button type="submit">Send Message</button>
+            </form>
         </div>
     </div>
-
-    <!-- Daily Structure -->
-    <section>
-        <div class="container">
-            <h2>Your Daily Brew of Productivity</h2>
-            <div class="grid md:grid-cols-4 gap-8">
-                <div class="card text-center">
-                    <i class="fas fa-sunrise icon-box"></i>
-                    <h3>Morning Planning</h3>
-                    <p>Start with a focused planning session. Set clear goals for your 4-hour productivity block.</p>
-                </div>
-                <div class="card text-center">
-                    <i class="fas fa-hourglass-half icon-box"></i>
-                    <h3>Focus Sessions</h3>
-                    <p>Six structured 25-minute Pomodoro sessions with accountability partners.</p>
-                </div>
-                <div class="card text-center">
-                    <i class="fas fa-comments icon-box"></i>
-                    <h3>Check-ins</h3>
-                    <p>Regular progress reviews and adjustments to keep you on track.</p>
-                </div>
-                <div class="card text-center">
-                    <i class="fas fa-chart-line icon-box"></i>
-                    <h3>Daily Wrap-up</h3>
-                    <p>Document achievements and prepare for tomorrow.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Life Management -->
-    <section>
-        <div class="container">
-            <h2>Beyond Productivity</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="card">
-                    <h3 class="flex items-center"><i class="fas fa-home icon-box mr-3"></i> Life Management</h3>
-                    <ul class="space-y-3 mt-4">
-                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Household task tracking</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Appointment scheduling</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Bill payment reminders</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Utilities management</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3 class="flex items-center"><i class="fas fa-heart icon-box mr-3"></i> Wellness Support</h3>
-                    <ul class="space-y-3 mt-4">
-                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Workout scheduling</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Activity tracking</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Habit building</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Progress monitoring</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3 class="flex items-center"><i class="fas fa-users icon-box mr-3"></i> Community</h3>
-                    <ul class="space-y-3 mt-4">
-                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> WhatsApp support group</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Accountability partners</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Shared celebrations</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Weekly insights</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer>
@@ -326,23 +290,32 @@
             }
         });
 
-        function sendContactForm() {
-            const userName = document.getElementById('user-name').value;
-            const userEmail = document.getElementById('user-email').value;
-            const userMessage = document.getElementById('user-message').value;
-
-            if (userName.trim() && userEmail.trim() && userMessage.trim()) {
-                alert("Thank you for your message! We'll get back to you soon.");
-                modal.style.display = 'none';
-                document.getElementById('user-name').value = '';
-                document.getElementById('user-email').value = '';
-                document.getElementById('user-message').value = '';
-            } else {
-                alert("Please fill in all fields before sending.");
-            }
-        }
-            document.querySelector('.contact-btn').addEventListener('click', function() {
+        document.querySelector('.contact-btn').addEventListener('click', function() {
             modal.style.display = 'block';
+        });
+
+        // Optional: Show alert after form submission
+        const contactForm = document.querySelector('#contactModal form');
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default submission to handle it with JavaScript
+            const formData = new FormData(contactForm);
+            fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    alert("Thank you for your message! We'll get back to you soon.");
+                    modal.style.display = 'none';
+                    contactForm.reset();
+                } else {
+                    alert("Oops! There was a problem submitting your form.");
+                }
+            }).catch(error => {
+                alert("Oops! There was a problem submitting your form.");
+            });
         });
     </script>
 </body>
