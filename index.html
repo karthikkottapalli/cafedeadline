@@ -355,21 +355,53 @@
             background-color: #D97706;
         }
         /* Responsive Styles */
-        @media (max-width: 768px) {
-            .pricing .pricing-table,
-            .daily-structure .grid,
-            .life-management .grid {
-                flex-direction: column;
-                align-items: center;
-            }
-            .navbar ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            .navbar ul li {
-                margin: 10px 0;
-            }
-        }
+@media (max-width: 768px) {
+    /* Navigation Bar */
+    .navbar ul {
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: #D97706;
+        padding: 10px;
+        margin: 0;
+    }
+    .navbar ul li {
+        margin: 5px 0;
+    }
+    /* Hero Section */
+    header {
+        padding: 50px 20px;
+    }
+    header h1 {
+        font-size: 2rem;
+    }
+    header p {
+        font-size: 1.2rem;
+    }
+    header button {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+    /* Section Cards */
+    .features .card, 
+    .pricing .pricing-plan, 
+    .daily-structure .card, 
+    .life-management .card {
+        flex: 1 1 100%;
+        max-width: 90%;
+        margin: 10px auto;
+    }
+    /* Pricing Table */
+    .pricing .pricing-table {
+        flex-direction: column;
+        align-items: center;
+    }
+    /* Modals */
+    .modal-content {
+        width: 90%;
+        margin: 20% auto;
+    }
+}
+
     </style>
 </head>
 <body>
