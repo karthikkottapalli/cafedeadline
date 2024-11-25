@@ -543,17 +543,147 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <div class="container">
-            <h2>Ready to Take Control of Your Day?</h2>
-            <p>Experience the difference with personalized support and a structured approach.</p>
-            <button class="get-started-btn">Get Started Now</button>
-            <div class="mt-8 text-sm text-amber-200">
-                © 2024 Cafe Deadline. All rights reserved.
-            </div>
+    <div class="container">
+        <h2>Ready to Take Control of Your Day?</h2>
+        <p>Experience the difference with personalized support and a structured approach.</p>
+        <button class="get-started-btn">Get Started Now</button>
+        <div class="mt-8 text-sm text-amber-200">
+            © 2024 Cafe Deadline. All rights reserved.
         </div>
-    </footer>
+        <div class="links mt-4">
+            <a href="#" id="privacy-policy-link">Privacy Policy</a> | 
+            <a href="#" id="terms-conditions-link">Terms and Conditions</a>
+        </div>
+    </div>
+</footer>
+
+<!-- Privacy Policy Modal -->
+<div id="privacyPolicyModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closePrivacyPolicy">&times;</span>
+        <h3>Privacy Policy</h3>
+        <p>
+
+Last Updated: November 25th, 2024</p>
+
+<p>Introduction</p>
+
+<p>Cafe Deadline ("we," "our," "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and disclose your information when you visit our website.
+
+Information We Collect
+
+Personal Information: We collect personal information that you provide to us when you register for an account, such as your name, email address, and payment information.
+Usage Data: We collect information about your interactions with our website, including the pages you visit, the time spent on the site, and other usage statistics.
+How We Use Your Information
+
+To provide, maintain, and improve our services.
+To process transactions and send related information.
+To communicate with you, including sending promotional materials.
+To comply with legal obligations.
+Sharing Your Information
+
+We do not sell your personal information to third parties. We may share your information with third-party service providers who assist us in operating our website, conducting our business, or servicing you, as long as those parties agree to keep this information confidential.
+
+Security
+
+We implement a variety of security measures to maintain the safety of your personal information. However, no method of transmission over the internet or electronic storage is 100% secure.
+
+Your Rights
+
+You have the right to access, correct, or delete your personal information. To exercise these rights, please contact us at admin@cafedeadline.com
+
+Changes to This Privacy Policy
+
+We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.
+
+Contact Us
+
+If you have any questions about this Privacy Policy, please contact us at admin@cafedeadline.com</p>
+    </div>
+</div>
+
+<!-- Terms and Conditions Modal -->
+<div id="termsConditionsModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeTermsConditions">&times;</span>
+        <h3>Terms and Conditions</h3>
+        <p>Last Updated: November 25th, 2024</p>
+
+<p>Introduction</p>
+
+<p>Welcome to Cafe Deadline. These Terms and Conditions ("Terms") govern your use of our website and services.</p>
+
+<p>Acceptance of Terms</p>
+
+<p>By accessing or using our website, you agree to be bound by these Terms. If you do not agree to these Terms, you may not use our website.</p>
+
+User Accounts
+
+To use certain features of our website, you may need to create an account. You are responsible for maintaining the confidentiality of your account information and for all activities that occur under your account.
+
+Use of the Site
+
+You agree to use our website only for lawful purposes. You are prohibited from violating or attempting to violate the security of the site, including accessing data not intended for you or logging into a server or account you are not authorized to access.
+
+Intellectual Property
+
+All content on this site, including text, graphics, logos, and images, is the property of Cafe Deadline or its content suppliers and is protected by copyright and trademark laws.
+
+Limitation of Liability
+
+In no event shall Cafe Deadline be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of the site.
+
+Governing Law
+
+These Terms shall be governed by and construed in accordance with the laws of Ontario/Canada
+
+Changes to Terms
+
+We reserve the right to modify these Terms at any time. We will notify you of any changes by posting the new Terms on this page.
+
+Contact Us
+
+If you have any questions about these Terms, please contact us at admin@cafedeadline.com</p>
+    </div>
+</div>
+
+<!-- JavaScript for Privacy and Terms Modals -->
+<script>
+    // Privacy Policy Modal
+    const privacyPolicyModal = document.getElementById("privacyPolicyModal");
+    const termsConditionsModal = document.getElementById("termsConditionsModal");
+    const closePrivacyPolicy = document.getElementById("closePrivacyPolicy");
+    const closeTermsConditions = document.getElementById("closeTermsConditions");
+
+    document.getElementById("privacy-policy-link").addEventListener("click", function (e) {
+        e.preventDefault();
+        privacyPolicyModal.style.display = "block";
+    });
+
+    document.getElementById("terms-conditions-link").addEventListener("click", function (e) {
+        e.preventDefault();
+        termsConditionsModal.style.display = "block";
+    });
+
+    closePrivacyPolicy.addEventListener("click", function () {
+        privacyPolicyModal.style.display = "none";
+    });
+
+    closeTermsConditions.addEventListener("click", function () {
+        termsConditionsModal.style.display = "none";
+    });
+
+    window.addEventListener("click", function (event) {
+        if (event.target == privacyPolicyModal) {
+            privacyPolicyModal.style.display = "none";
+        }
+        if (event.target == termsConditionsModal) {
+            termsConditionsModal.style.display = "none";
+        }
+    });
+</script>
+
 
     <!-- Modal Contact Form -->
     <div id="contactModal" class="modal">
@@ -616,4 +746,3 @@
     </script>
 </body>
 </html>
-
